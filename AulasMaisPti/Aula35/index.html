@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Via Cep</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    body{
+      background-color: #63B4FF;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      height: 100vh;
+    }
+
+    #card{
+      background-color: white;
+      text-align: center;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    h1 h2 {
+      margin-bottom: 2rem;
+       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    p{
+      margin: 1rem;
+      padding: 0.5rem;
+    }
+
+    button{
+      background-color: #63B4FF;
+      color: white;
+      border-radius: 6px;
+      margin: 0.5rem;
+      border: none;
+      padding: 0.5rem;
+    }
+
+    li{
+        list-style-type: none;
+        padding: 0.5rem;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div id="card"> 
+  <h1>Consultar Endereço por CEP</h1>
+
+  <label for="cep">Digite o CEP (8 DIGITOS):</label>
+  <input type="text" id="cep" maxlength="9" placeholder="ex: 01002-000" onkeydown="verificarEnter(event)">
+  <button id="buscar">Buscar Endereço</button>
+
+  <div id="resultado"></div>
+  </div>
+
+<script>
+   const inputCep = document.getElementById('cep')
+   const divResultado = document.getElementById('resultado')
+   const btnBuscar = document.getElementById('buscar')
+   
+   async function consultarCep() {
+    const cep = inputCep.value
+
+    const url = `https://viacep.com.br/ws/${cep}/json/`
+
+    try{
+      const resp = await fetch(url, {method: 'GET'})
+
+      const data = await resp.json()
+
+      divResultado.innerHTML = `
+      <h2>Endereço encontrado:</h2>
+      <ul>
+        <li>CEP: ${data.cep}</li>
+        <li>Logradouro: ${data.logradouro}</li>
+        <li>Complemento: ${data.complemento}</li>
+        <li>Bairro: ${data.bairro}</li>
+        <li>Cidade: ${data.localidade}</li>
+        <li>Estado: ${data.uf}</li>
+      </ul>`
+
+   }catch(err){
+    divResultado.innerHTML= `<p class='erro' > Erro ao consultar o CEP ${cep}</p>`
+   }
+  }
+  btnBuscar.addEventListener('click', consultarCep)
+
+  function verificarEnter(event) {
+  if (event.keyCode === 13) {
+    consultarCep()
+  }
+  }
+
+</script>
+
+</body>
+
+</html>
+

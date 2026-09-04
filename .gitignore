@@ -1,0 +1,43 @@
+# Dependencias instaladas
+**/node_modules/
+
+# Variaveis de ambiente e segredos
+.env
+.env.*
+!.env.example
+
+# Builds, bundles e artefatos de ferramentas frontend
+**/dist/
+**/dist-ssr/
+**/build/
+**/coverage/
+**/.vite/
+**/.cache/
+**/.parcel-cache/
+**/public/bundle.js
+
+# Logs e arquivos de depuracao
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Arquivos temporarios do VS Code e Code Runner
+**/tempCodeRunnerFile.js
+*.code-workspace
+
+# Configuracoes locais de editores e sistemas operacionais
+.vscode/*
+!.vscode/extensions.json
+**/.idea/
+.DS_Store
+Thumbs.db
+
+# Arquivos gerados por sistemas Windows e ferramentas JavaScript
+*.suo
+*.ntvs*
+*.njsproj
+*.sw?
+*.tsbuildinfo

@@ -1,0 +1,18 @@
+@import './tokens.module.css';
+
+.skeleton {
+  background-color: #e5e7eb;
+  border-radius: var(--radius);
+  width: 100%;
+  height: 100%;
+  animation: pulse 1.5s infinite ease-in-out;
+  display: block;
+}
+.image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+@keyframes pulse {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}

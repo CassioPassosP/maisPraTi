@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <h1>Vanilla JavaScript</h1>
+    <p>JavaScript Puro</p>
+
+    <div>
+        <nav>
+            <ul id="selecao">
+                <button id="pq-react">Por que utilizar o React</button>
+                <button id="prin-react">Principais Recursos</button>
+                <button id="rel-react">Recursos Relacionados</button>
+            </ul>
+        </nav>
+
+        <div>
+            <ul id="content">
+                <li>React é extremamente popular</li>
+                <li>Facilita a criação de interfaces de usuário complexas e interativas</li>
+                <li>É poderoso e flexível</li>
+                <li>Possui um ecossistema muito ativo e versátil</li>
+            </ul>
+        </div>
+    </div>
+    <script>/*
+        const selecao = document.getElementById("selecao")
+        const content = document.getElementById("content")
+        const buttonPq = document.getElementById("pq-react")
+        const buttonPrin = document.getElementById("prin-react")
+        const buttonRel = document.getElementById("rel-react")
+
+
+        selecao.style.listStyleType = "none";
+
+        buttonPq.addEventListener('click', (event)=>{
+          content.innerHTML = ` 
+            <li>React e extremamente popular</li>
+            <li>Facilita a criacao de interfces de usuario complexas e interativas</li>
+            <li>E poderoso e flexivel</li>
+            <li>Possui um ecossitema muito ativo e versatil</li>`
+        })
+
+
+        buttonPrin.addEventListener('click', (event)=>{
+          content.innerHTML = ` 
+            <li>Componentes, JSX e Props</li>
+            <li>Estado</li>
+            <li>Hooks</li>
+            <li>Renderizacao dinamica</li>`
+        })
+
+
+        buttonRel.addEventListener('click', (event)=>{
+          content.innerHTML = ` 
+            <li>Pagina oficial</li>
+            <li>Next.js (Framework Fullstack)</li>
+            <li>React Native (Construa aplicativos moveis nativos com React)</li>`
+        })*/
+
+        const content = document.getElementById("content");
+
+        const info = {
+           pq: [
+                "React é extremamente popular",
+                "Facilita a criação de interfaces de usuário complexas e interativas",
+                "É poderoso e flexível",
+                "Possui um ecossistema muito ativo e versátil"
+               ],
+           prin: [
+                "Componentes, JSX e Props",
+                "Estado",
+                "Hooks",
+                "Renderização dinâmica"
+               ],
+           rel: [
+                "Página oficial",
+                "Next.js (Framework Fullstack)",
+                "React Native (Construa aplicativos móveis nativos com React)"
+                ]
+            };
+
+            function renderContent(items) {
+               //items.map(item => <li>${item}</li>)
+               // O map percorre cada elemento do array items e cria uma string HTML <li> para ele.
+               content.innerHTML = items.map(item => `<li>${item}</li>`).join(""); //join("") concatena todas as strings do array em uma só:
+            }
+
+            // Adiciona eventos dinamicamente
+            document.getElementById("pq-react").addEventListener("click", () => renderContent(info.pq));
+            document.getElementById("prin-react").addEventListener("click", () => renderContent(info.prin));
+            document.getElementById("rel-react").addEventListener("click", () => renderContent(info.rel));
+    </script>
+
+    
+
+  </body>
+</html>

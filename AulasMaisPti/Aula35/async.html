@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise, Fetch, Async/Await</title>
+  <style>
+  </style>
+
+</head>
+
+<body>
+    <h1>Assicronismo</h1>
+
+    <button id="btnPromise">Executar promise</button>
+    <pre id="outPromise"></pre>
+
+    <button id="outFetchThen">Fetch via .then()</button>
+    <pre id="OutFetchThen"></pre>
+
+    <button id="btnFetchAsync">Fetch via .async/await</button>
+    <pre id="btnFetchAsync"></pre>
+
+    <script>
+        function simulatePromise(valor, tempMS){
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve('Sucesso ' + valor)
+                }, tempMS)
+            })
+        }
+
+        document.getElementById('btnPromise').addEventListener('click', () => {
+            const out = document.getElementById('outPromise')
+            out.textContent = 'Aguardando...'
+            simulatePromise('Ola mundo', 1500).then(msg =>{
+                out.textContent = msg
+            }).catch(err =>{
+                out.textContent = err
+            })
+
+            const btnFethThen = document.getElementById('outFetchAsync')
+            btnFethThen.textContent = 'Teste'
+        })
+
+        async function consultarCepAsync() {
+            const out = document.getElementById('outFetchAsync')
+
+            out.textContent = 'Buscando cep...'
+
+            const url = `https://viacep.com.br/ws//`
+
+            try{
+                const resp = await fetch(url, {
+                    method: 'GET'
+                })
+
+                const data = await resp.json()
+
+                out.textContent = JSON.stringify(data, null, 2)
+
+            }catch(err){
+                out.textContent = err
+            }
+            
+        }
+
+        document.getElementById('btnFetchAsync').addEventListener('click', consultarCepAsync)
+    </script>
+</body>
+
+</html>
+

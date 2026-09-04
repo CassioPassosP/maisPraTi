@@ -1,0 +1,142 @@
+/* Reset basico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variaveis */
+:root {
+  --cor-primaria: #0077cc;
+  --cor-secundaria: #005fa3;
+  --cor-texto: #333;
+  --cor-fundo: #f4f4f9;
+  --fonte-principal: 'Poppins', sans-serif;
+}
+
+/* Estilo geral */
+body {
+  font-family: var(--fonte-principal);
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+}
+
+header {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+header .foto-perfil {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid var(--cor-primaria);
+  margin-bottom: 1rem;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: var(--cor-primaria);
+}
+
+header .slogan {
+  font-style: italic;
+  color: var(--cor-secundaria);
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 1rem 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--cor-primaria);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--cor-secundaria);
+}
+
+/* Secoes principais */
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+}
+
+section {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+section:hover {
+  transform: scale(1.02);
+}
+
+h2 {
+  margin-bottom: 1rem;
+  color: var(--cor-primaria);
+}
+
+li {
+  list-style: none;
+}
+
+article {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: #fafafa;
+  border-left: 4px solid var(--cor-primaria);
+}
+
+aside {
+  background: #fff;
+  padding: 1rem;
+  margin: 2rem auto;
+  max-width: 900px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+aside li {
+  margin-bottom: 0.5rem;
+}
+
+aside a {
+  color: var(--cor-primaria);
+  text-decoration: none;
+}
+
+aside a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  background: var(--cor-primaria);
+  color: #fff;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+}
+
+
